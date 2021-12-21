@@ -13,8 +13,12 @@ function renderScreen(data) {
   data
     .map((person) => {
       const row = document.createElement("tr");
+      const linkString =
+        person.link === ""
+          ? person.name
+          : `<a href= ${person.link}>${person.name}</a>`;
       row.innerHTML = `<td>${person.recipient}</td>
-        <td>${person.name}</td>
+        <td>${linkString}</td>
         <td>$${person.priceInDollars}</td>`;
       const lastCell = document.createElement("td");
       const checkbox = document.createElement("input");
